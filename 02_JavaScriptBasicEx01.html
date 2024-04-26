@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>02_JavaScriptBasicEx01.html</title>
+    <script type="text/javaScript">
+        // 원의 반지름을 입력 받아서 원의 넓이 , 둘레의 길이를 documnet.write를 이용해서 출력하세요
+        // 출력양식
+        // 입력하신 반지름 x에 대한 
+        // 원의 넓이 : xx.xx
+        // 원의 둘레 : xx.xx
+        var pi = 3.14;
+        var r = prompt("반지름을 입력하세요","숫자로 입력하세요");
+        var area = (r*r*pi);
+        var length = (r*2*pi);
+        document.write("<h1>입력하신 반지름 " + r + "에 대한</h1>");
+        document.write("<h1>원   넓이 : " + area + "</h1>");
+        document.write("<h1>원의 둘레 : " + length + "</h1>");
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>09_ControlEx03.html</title>
+    <script type="text/JavaScript">
+        // 2024년 1월 1일 월요일
+        // 2024년 한해서 월과 일을 입력받아서 요일을 출력합니다
+        var today = new Date();
+
+        var year = today.getFullYear();
+        var month = today.getMonth()+1; //0~11월로 저장해놓기때문에 +1 해야함
+        var date1 = today.getDate();
+        var y = Number(prompt("년도를 입력하세요",year));
+        var m = Number(prompt("월을 입력하세요",month));
+        // var d = Number(prompt("일을 입력하세요",date1));
+        
+        //서기 1년 1월 1일은 월요일
+        
+        // 1년부터 입력한 년도의 전년도까지의 날짜들을 합산
+        var days = 365*(y-1);
+        for(var i=1; i<y; i++){
+            if((i%4==0)&&(i%100!=0) || (i%400==0)){
+                days++;
+            }
+        }
+        
+        var mdays=[0,31,28,31,30,31,30,31,31,30,31,30,31];
+        if((i%4==0)&&(i%100!=0) || (i%400==0)){
+            mdays[2] = 29;
+        }
+
+        for(var i = 1; i<=m-1; i++){
+            days+=mdays[i];
+        }
+
+        // 입력한 일을 날짜수에 계산
+        days+=1;
+
+        // 총 날짜수를 7로 나눈 나머지 계산
+        var weekday = days%7;
+
+        
+        
+
+    </script>
+</head>
+<body>
+    <script type="text/javaScript">
+        // 반복실행문을 이용해서 5행 7열 테이블에 1~31의 숫자를 채워주세요
+        document.write('<table width="700" border=1>');
+        document.write('<tr height:"80" align="center"><td>일</td><td>월</td><td>화</td><td>수</td><td>목</td><td>금</td><td>토</td></tr>');
+        
+        document.write('<tr height:"80" align="right">');
+        //선생님 추천 방법 : 첫줄은 weekday만큼 빈칸 넣고 1일 넣기
+        for(var i=0;i<=weekday;i++){
+            if(i!=weekday){
+                document.write('<td></td>');
+            }else{
+                document.write('<td>'+1+'</td>');
+            }
+        }
+        for(var i=2; i<=mdays[m]; i++){
+            document.write('<td>'+i+'</td>');
+            if(i%7==7-weekday){
+                document.write('</tr>');
+                document.write('<tr height:"80" align="right">');
+            }
+        }
+        documnet.write('</tr>');
+
+        document.write('</table>');
+    </script>
+</body>
+</html>
